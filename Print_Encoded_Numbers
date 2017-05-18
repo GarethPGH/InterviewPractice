@@ -1,0 +1,87 @@
+// For a set of numbers encoded as follows: 0:@@ ; 1:_ ; 2:abc ; 3:def ; 4:ghi ; 5:jkl ; 6:mno ; 7:pqrs ; 8:tuv ; 9:wxyz
+//print all possible combinations for any string of numbers
+
+
+//first match entered variable leftmost digit to the array. Initialize array for each of the new 
+
+function assignMe(input) {
+    if (input) {
+        
+        console.log(typeof input, input);
+        input.split("");
+        var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        input.forEach(function (item, index, array) {
+            for (let i = 0; i < numbArr.length; i++) {
+                if (!input[i]) {
+                    console.log("this is not a valid positive number.");
+                    //Website code would prompt the user to enter a valid number and focus on the textbox.
+                    break;
+                }
+            }
+        });
+    };
+}
+
+function assignPossibilities(input) {
+    for (let i = 0; i < input.length; i++) {
+
+        switch (input[i]) {
+            case (input[i] === "0") || (input[i] === "1"):
+                if ("1") {
+                    input[i] = "@@";
+                } else {
+                    input[i] = "_";
+                }
+                break;
+            case (input[i] === "7") || (input[i] === "9"):
+                if ("7") {
+                    input[i] = ["p", "q", "r", "s"];
+                } else {
+                    input[i] = ["w", "x", "y", "z"];
+                }
+                break;
+            case (input[i] === "2") || (input[i] === "3") || (input[i] === "4") || (input[i] === "5") || (input[i] === "6") || (input[i] === "8"):
+                if ("2") {
+                    input[i] = ["a", "b", "c"];
+                } else if ("3") {
+                    input[i] = ["d", "e", "f"];
+                } else if ("4") {
+                    input[i] = ["g", "h", "i"];
+                } else if ("5") {
+                    input[i] = ["j", "k", "l"];
+                } else if ("6") {
+                    input[i] = ["m", "n", "o"];
+                } else {
+                    input[i] = ["t", "u", "v"];
+                }
+                break;
+        }
+
+        input.join("");
+    }
+}
+function listPossibilities(input) {
+    //check the size of inputs various digits
+    var possibilities = [];
+    for (let i = 0; i < input.length; i++) {
+        possibilities.push(input[i]);
+    };
+    //intialize counter number of arrays.
+    console.log(possibilities);
+}
+
+function callFunc() {
+    var input;
+    input = "" + input;
+    console.log(typeof input, input);
+    assignMe(input);
+    assignPossibilities(input);
+    listPossibilities(input);
+}
+
+//should pass
+callFunc(42);
+callFunc(56747);
+//should fail
+callFunc("sdfegr");
+callFunc(-453);
