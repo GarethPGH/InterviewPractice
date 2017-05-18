@@ -6,21 +6,25 @@
 
 function assignMe(input) {
     if (input) {
-        
+
         console.log(typeof input, input);
-        input.split("");
+        
+        //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
         var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        input.forEach(function (item, index, array) {
-            for (let i = 0; i < numbArr.length; i++) {
-                if (!input[i]) {
-                    console.log("this is not a valid positive number.");
-                    //Website code would prompt the user to enter a valid number and focus on the textbox.
-                    break;
-                }
+
+        for (let i = 0; i < input.length; i++) {
+            var compare = input[i];
+            var isItIn = compare in numbArr;
+            if (!isItIn) {
+                document.alert(input + " is not valid");
+                break;
             }
-        });
-    };
-}
+            i++;
+        }
+        
+    }
+};
+    
 
 function assignPossibilities(input) {
     for (let i = 0; i < input.length; i++) {
@@ -57,7 +61,7 @@ function assignPossibilities(input) {
                 break;
         }
 
-        input.join("");
+        possibilities.join("");
     }
 }
 function listPossibilities(input) {
@@ -73,6 +77,7 @@ function listPossibilities(input) {
 function callFunc() {
     var input;
     input = "" + input;
+    input.split("");
     console.log(typeof input, input);
     assignMe(input);
     assignPossibilities(input);
