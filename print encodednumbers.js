@@ -7,80 +7,84 @@
 var Input = function () {
     var input;
     Input.this = input;
+    //I think this doesnt mean what I think it means
 
 
-    function assignMe() {
-
-        if (input) {
+    function assignMe(input) {
+        //this for some inexplicable stupid reason is still UNDEFINED!
+        var value = input;
+        if (value) {
             //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
             var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-            for (let i = 0; i < input.length; i++) {
-                var compare = input[i];
+            for (let i = 0; i < value.length; i++) {
+                var compare = value[i];
                 var isItIn = compare in numbArr;
                 if (!isItIn) {
-                    window.alert(input + " is not valid");
+                    window.alert(value + " is not valid");
                     break;
                 }
 
             }
 
         }
-        input = input + "";
+        value = value + "";
 
-        input = input.split("");
-        console.log(typeof input, input);
-        return input;
+        value = value.split("");
+        console.log(typeof value, value);
+        return value;
     }
 
-    function assignPossibilities() {
-        for (let i = 0; i < input.length; i++) {
+    function assignPossibilities(input) {
+        var value = input;
+        for (let i = 0; i < value.length; i++) {
 
-            if (input[i] === "1") {
-                input[i] = ["@@", "@@", "@@", "@@"];
+            if (value[i] === "1") {
+                value[i] = ["@@", "@@", "@@", "@@"];
             }
-            else if (input[i] === "0") {
-                input[i] = ["_", "_", "_", "_"];
+            else if (value[i] === "0") {
+                value[i] = ["_", "_", "_", "_"];
             }
-            else if (input[i] === "7") {
-                input[i] = ["p", "q", "r", "s"];
+            else if (value[i] === "7") {
+                value[i] = ["p", "q", "r", "s"];
             }
-            else if (input[i] === "9") {
-                input[i] = ["w", "x", "y", "z"];
+            else if (value[i] === "9") {
+                value[i] = ["w", "x", "y", "z"];
             }
-            else if (input[i] === "2") {
-                input[i] = ["a", "b", "c", ""];
+            else if (value[i] === "2") {
+                value[i] = ["a", "b", "c", ""];
             }
-            else if (input[i] === "3") {
-                input[i] = ["d", "e", "f", ""];
+            else if (value[i] === "3") {
+                value[i] = ["d", "e", "f", ""];
             }
-            else if (input[i] === "4") {
-                input[i] = ["g", "h", "i", ""];
+            else if (value[i] === "4") {
+                value[i] = ["g", "h", "i", ""];
             }
-            else if (input[i] === "5") {
-                input[i] = ["j", "k", "l", ""];
+            else if (value[i] === "5") {
+                value[i] = ["j", "k", "l", ""];
             }
-            else if (input[i] === "6") {
-                input[i] = ["m", "n", "o", ""];
+            else if (value[i] === "6") {
+                value[i] = ["m", "n", "o", ""];
             }
-            else if (input[i] === "8") {
-                input[i] = ["t", "u", "v", ""];
+            else if (value[i] === "8") {
+                value[i] = ["t", "u", "v", ""];
             };
-            console.log(typeof input, input);
+            console.log(typeof value, value);
 
-            input += input[i];
+            value += value[i];
 
-            console.log(input);
+            console.log(value);
 
         }
-        return input;
+        return value;
     }
 
-    function listPossibilities() {
+    function listPossibilities(input) {
+        var value = input;
         //check the size of inputs various digits
         var possibilities = [];
-        for (let i = 0; i < input.length; i++) {
-            possibilities.push(input[i]);
+        for (let i = 0; i < value.length; i++) {
+            possibilities.push(valueinput[i]);
         }
         //intialize counter number of arrays.
         console.log(possibilities);
