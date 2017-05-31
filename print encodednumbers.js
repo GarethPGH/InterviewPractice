@@ -5,86 +5,88 @@
 
 //first match entered variable leftmost digit to the array. Initialize array for each of the new 
 var Input = function () {
-    input = this;
-};
+    var input;
+    Input.this = input;
 
-Input.prototype.assignMe = function (input) {
 
-    if (input) {
-        //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
-        var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    function assignMe() {
 
-        for (let i = 0; i < input.length; i++) {
-            var compare = input[i];
-            var isItIn = compare in numbArr;
-            if (!isItIn) {
-                window.alert(input + " is not valid");
-                break;
+        if (input) {
+            //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
+            var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+            for (let i = 0; i < input.length; i++) {
+                var compare = input[i];
+                var isItIn = compare in numbArr;
+                if (!isItIn) {
+                    window.alert(input + " is not valid");
+                    break;
+                }
+
             }
-            i++;
-        }
 
-    }
-    input = input + "";
+        }
+        input = input + "";
 
-    input = input.split("");
-
-    console.log(typeof input, input);
-
-};
-
-Input.prototype.assignPossibilities = function (input) {
-    for (let i = 0; i < input.length; i++) {
-
-        if (input[i] === "1") {
-            input[i] = ["@@", "@@", "@@", "@@"];
-        }
-        else if (input[i] === "0") {
-            input[i] = ["_", "_", "_", "_"];
-        }
-        else if (input[i] === "7") {
-            input[i] = ["p", "q", "r", "s"];
-        }
-        else if (input[i] === "9") {
-            input[i] = ["w", "x", "y", "z"];
-        }
-        else if (input[i] === "2") {
-            input[i] = ["a", "b", "c", ""];
-        }
-        else if (input[i] === "3") {
-            input[i] = ["d", "e", "f", ""];
-        }
-        else if (input[i] === "4") {
-            input[i] = ["g", "h", "i", ""];
-        }
-        else if (input[i] === "5") {
-            input[i] = ["j", "k", "l", ""];
-        }
-        else if (input[i] === "6") {
-            input[i] = ["m", "n", "o", ""];
-        }
-        else if (input[i] === "8") {
-            input[i] = ["t", "u", "v", ""];
-        }
+        input = input.split("");
         console.log(typeof input, input);
-
-        input += input[i];
-
-        console.log(input);
-
+        return input;
     }
-};
 
-Input.prototype.listPossibilities = function (input) {
-    //check the size of inputs various digits
-    var possibilities = [];
-    for (let i = 0; i < input.length; i++) {
-        possibilities[i] = input[i];
+    function assignPossibilities() {
+        for (let i = 0; i < input.length; i++) {
+
+            if (input[i] === "1") {
+                input[i] = ["@@", "@@", "@@", "@@"];
+            }
+            else if (input[i] === "0") {
+                input[i] = ["_", "_", "_", "_"];
+            }
+            else if (input[i] === "7") {
+                input[i] = ["p", "q", "r", "s"];
+            }
+            else if (input[i] === "9") {
+                input[i] = ["w", "x", "y", "z"];
+            }
+            else if (input[i] === "2") {
+                input[i] = ["a", "b", "c", ""];
+            }
+            else if (input[i] === "3") {
+                input[i] = ["d", "e", "f", ""];
+            }
+            else if (input[i] === "4") {
+                input[i] = ["g", "h", "i", ""];
+            }
+            else if (input[i] === "5") {
+                input[i] = ["j", "k", "l", ""];
+            }
+            else if (input[i] === "6") {
+                input[i] = ["m", "n", "o", ""];
+            }
+            else if (input[i] === "8") {
+                input[i] = ["t", "u", "v", ""];
+            };
+            console.log(typeof input, input);
+
+            input += input[i];
+
+            console.log(input);
+
+        }
+        return input;
     }
-    //intialize counter number of arrays.
-    console.log(possibilities);
-};
 
-var input = new Input();
-input.input = 42;
-input.assignMe.assignPossibilities.listPossibilities;
+    function listPossibilities() {
+        //check the size of inputs various digits
+        var possibilities = [];
+        for (let i = 0; i < input.length; i++) {
+            possibilities.push(input[i]);
+        }
+        //intialize counter number of arrays.
+        console.log(possibilities);
+        return possibilities;
+    }
+}
+var passed = new Input();
+passed.input = 42;
+passed.assignMe.assignPossibilities.listPossibilities;
