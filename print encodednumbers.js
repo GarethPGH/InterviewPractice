@@ -10,9 +10,9 @@ var Input = function () {
     //I think this doesnt mean what I think it means
 
 
-    function assignMe(input) {
+    function assignMe() {
         //this for some inexplicable stupid reason is still UNDEFINED!
-        var value = input;
+        
         if (value) {
             //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
             var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -35,8 +35,8 @@ var Input = function () {
         return value;
     }
 
-    function assignPossibilities(input) {
-        var value = input;
+    function assignPossibilities(assignMe) {
+        
         for (let i = 0; i < value.length; i++) {
 
             if (value[i] === "1") {
@@ -79,8 +79,8 @@ var Input = function () {
         return value;
     }
 
-    function listPossibilities(input) {
-        var value = input;
+    function listPossibilities(assignPossibilities) {
+        
         //check the size of inputs various digits
         var possibilities = [];
         for (let i = 0; i < value.length; i++) {
@@ -93,4 +93,4 @@ var Input = function () {
 }
 var passed = new Input();
 passed.input = 42;
-passed.assignMe.assignPossibilities.listPossibilities;
+passed.listPossibilities;
