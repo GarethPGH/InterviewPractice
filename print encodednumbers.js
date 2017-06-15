@@ -9,32 +9,37 @@ var Input = function () {
     Input.this = input;
     //I think this doesnt mean what I think it means
 
+    function validateInput(input) {
 
-    function assignMe(input) {
-        //this for some inexplicable stupid reason is still UNDEFINED!
         var value = input;
-        if (value) {
-            //for index does input[i] = index, if it does, exists, if it is not in array break and err out 
-            var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-            for (let i = 0; i < value.length; i++) {
-                var compare = value[i];
-                var isItIn = compare in numbArr;
-                if (!isItIn) {
-                    window.alert(value + " is not valid");
-                    break;
-                }
-
-            }
-
-        }
+        console.log(value + " , " + input);
+        var numbArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
         value = value + "";
 
         value = value.split("");
-        console.log(typeof value, value);
-        return value;
+        if (value) {
+            var validated = [];
+            for (let i = 0; i < value.length; i++) {
+                var compare = value[i];
+                console.log(compare);
+                for (item in numbArr) {
+                    //if item is in array input is valid
+                    if (compare === item) {
+                        validated.push(compare);
+                    }
+                }
+            }
+            if (validated != "") {
+                console.log(validated + "is a valid number");
+                return value;
+            }
+            else {
+                value = value.join("");
+                console.log(value + " is not a valid number");
+            }
+        }
     }
-
+  
     function assignPossibilities(assignMe) {
 
         for (let i = 0; i < value.length; i++) {
