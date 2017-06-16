@@ -32,8 +32,12 @@ Input.validateInput = function(input) {
     }
 }
 
-Input.assignPossibilities = function(input, validateInput) {
-
+Input.assignPossibilities = function(input) {
+    
+    var value = validateInput(input);
+    value.split("");
+    var possibilities = [];
+    console.log(value);
     for (let i = 0; i < value.length; i++) {
 
         if (value[i] === "1") {
@@ -63,20 +67,21 @@ Input.assignPossibilities = function(input, validateInput) {
         else if (value[i] === "6") {
             value[i] = ["m", "n", "o", ""];
         }
-        else if (value[i] === "8") {
+        else (value[i] === "8") {
             value[i] = ["t", "u", "v", ""];
         };
-        console.log(typeof value, value);
 
-        value += value[i];
-
-        console.log(value);
+        possibilities.push(value[i]);
 
     }
-    return value;
-}
+    console.log(typeof value, value);
+    console.log(possibilities);
+    // assignPossibilities();
+};
 
-Input.listPossibilities = function(input, assignPossibilities) {
+Input.listPossibilities = function (input) {
+
+    Input.assignPossibilities(input);
 
     //check the size of inputs various digits
     var possibilities = [];
@@ -85,9 +90,76 @@ Input.listPossibilities = function(input, assignPossibilities) {
     }
     //intialize counter number of arrays.
     console.log(possibilities);
-    return possibilities;
+    return listpossibilities;
 }
 
 var exInput = new Input();
 exInput.input = 42;
 exInput.listPossibilities;
+
+
+//This is here because it is currently being worked on in separation from the rest
+
+
+//This is here because it is currently being worked on in separation from the rest
+
+var assignPossibilities = function (input) {
+    var value = input;
+    value = value.split("");
+    var possibilities = [];
+    // console.log(value);
+    for (let i = 0; i < value.length; i++) {
+
+        if (value[i] === "1") {
+            value[i] = ["@@", "@@", "@@", "@@"];
+        }
+        else if (value[i] === "0") {
+            value[i] = ["_", "_", "_", "_"];
+        }
+        else if (value[i] === "7") {
+            value[i] = ["p", "q", "r", "s"];
+        }
+        else if (value[i] === "9") {
+            value[i] = ["w", "x", "y", "z"];
+        }
+        else if (value[i] === "2") {
+            value[i] = ["a", "b", "c", " "];
+        }
+        else if (value[i] === "3") {
+            value[i] = ["d", "e", "f", " "];
+        }
+        else if (value[i] === "4") {
+            value[i] = ["g", "h", "i", " "];
+        }
+        else if (value[i] === "5") {
+            value[i] = ["j", "k", "l", " "];
+        }
+        else if (value[i] === "6") {
+            value[i] = ["m", "n", "o", " "];
+        }
+        else if (value[i] === "8") {
+            value[i] = ["t", "u", "v", " "];
+        } else {
+            console.log("Input is not valid");
+            break;
+        }
+
+        possibilities.push(value[i]);
+
+    }
+    // console.log(typeof value, value);
+    var probable = [];
+    for (let i = 0; i < possibilities.length; i++) {
+        for (let j = 0; j < possibilities[i].length; j++) {
+            if (possibilities[i].includes(" ")) {
+                possibilities[j] = possibilities[j].-" ";
+            }
+        };
+        probable += possibilities[i];
+    }
+    console.log(probable);
+
+};
+
+
+assignPossibilities("42");
